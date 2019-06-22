@@ -1,13 +1,12 @@
-package id.cashflow.android
+package id.cashflow.android.ui
 
+import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
 import android.view.MenuInflater
-import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
-import id.cashflow.android.util.Calculator
+import id.cashflow.android.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -20,6 +19,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        initView()
+        initFragment()
+    }
+
+    private fun initFragment() {
+        val mainFragment = MainFragment()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.flFragment, mainFragment)
+            .commit()
+    }
+
+    private fun initView() {
         ivNotification.setOnClickListener {
             Toast.makeText(this@MainActivity, "Notification", Toast.LENGTH_SHORT).show()
         }
@@ -34,7 +45,7 @@ class MainActivity : AppCompatActivity() {
                         true
                     }
                     R.id.action_logout -> {
-                        Toast.makeText(this@MainActivity, "Logout", Toast.LENGTH_SHORT).show()
+                        onLogoutClick()
                         true
                     }
 
@@ -43,40 +54,10 @@ class MainActivity : AppCompatActivity() {
             }
             popup.show()
         }
-
-        println("HALO ANDROID !")
-
-        val calc = Calculator()
-        val resultSum = calc.sum(5, 5)
-        println("result : ${resultSum}")
-        val resultSub = calc.sub(5, 5)
-        println("result : ${resultSub}")
-        val resultTimes = calc.times(5, 5)
-        println("result : ${resultTimes}")
-        val resultDiv = calc.div(5, 5)
-        println("result : ${resultDiv}")
-
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val inflater: MenuInflater = menuInflater
-        inflater.inflate(R.menu.menu_main_setting, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-
-        return when (item?.itemId) {
-            R.id.action_setting -> {
-                Toast.makeText(this@MainActivity, "Setting", Toast.LENGTH_SHORT).show()
-                true
-            }
-            R.id.action_logout -> {
-                Toast.makeText(this@MainActivity, "Logout", Toast.LENGTH_SHORT).show()
-                true
-            }
-
-            else -> super.onOptionsItemSelected(item)
-        }
+    private fun onLogoutClick() {
+        startActivity(Intent(this@MainActivity, LoginActivity::class.java))
+        finish()
     }
 }

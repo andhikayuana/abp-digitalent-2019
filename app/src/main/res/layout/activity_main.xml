@@ -43,14 +43,9 @@
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
 
-    <androidx.cardview.widget.CardView
-            android:layout_margin="10dp"
-            android:background="#FFADAD"
-            app:cardCornerRadius="10dp"
+    <FrameLayout
+            android:id="@+id/flFragment"
             android:layout_width="match_parent"
-            android:layout_height="200dp">
-
-
-    </androidx.cardview.widget.CardView>
+            android:layout_height="match_parent"/>
 
 </LinearLayout>
