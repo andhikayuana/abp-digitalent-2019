@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
 import id.cashflow.android.R
+import id.cashflow.android.util.toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -32,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initView() {
         ivNotification.setOnClickListener {
-            Toast.makeText(this@MainActivity, "Notification", Toast.LENGTH_SHORT).show()
+            this@MainActivity.toast("Notification")
         }
         ivSetting.setOnClickListener { view ->
             val popup = PopupMenu(this@MainActivity, view)
@@ -41,7 +42,7 @@ class MainActivity : AppCompatActivity() {
             popup.setOnMenuItemClickListener {
                 when (it.itemId) {
                     R.id.action_setting -> {
-                        Toast.makeText(this@MainActivity, "Setting", Toast.LENGTH_SHORT).show()
+                        this@MainActivity.toast("Setting")
                         true
                     }
                     R.id.action_logout -> {
