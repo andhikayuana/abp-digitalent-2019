@@ -3,11 +3,11 @@ package id.cashflow.android.ui
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuInflater
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment
 import id.cashflow.android.R
-import id.cashflow.android.util.toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -16,24 +16,25 @@ import kotlinx.android.synthetic.main.activity_main.*
  **/
 class MainActivity : AppCompatActivity() {
 
+    var host: NavHostFragment? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         initView()
-        initFragment()
     }
 
-    private fun initFragment() {
-        val mainFragment = MainFragment()
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.flFragment, mainFragment)
-            .commit()
+    override fun onAttachFragment(fragment: Fragment?) {
+        super.onAttachFragment(fragment)
+        host = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
     }
 
     private fun initView() {
+        tvTitle.setOnClickListener {
+            host?.navController?.navigate(R.id.mainFragment)
+        }
         ivNotification.setOnClickListener {
-            this@MainActivity.toast("Notification")
+            host?.navController?.navigate(R.id.notificationFragment)
         }
         ivSetting.setOnClickListener { view ->
             val popup = PopupMenu(this@MainActivity, view)
@@ -42,7 +43,7 @@ class MainActivity : AppCompatActivity() {
             popup.setOnMenuItemClickListener {
                 when (it.itemId) {
                     R.id.action_setting -> {
-                        this@MainActivity.toast("Setting")
+                        host?.navController?.navigate(R.id.settingFragment)
                         true
                     }
                     R.id.action_logout -> {
