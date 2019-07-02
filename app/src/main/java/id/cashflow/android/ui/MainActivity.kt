@@ -1,5 +1,6 @@
 package id.cashflow.android.ui
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuInflater
@@ -59,6 +60,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onLogoutClick() {
+        val sharedPref = getSharedPreferences(LoginActivity.PREF_NAME, Context.MODE_PRIVATE)
+        sharedPref.edit().clear().apply()
         startActivity(Intent(this@MainActivity, LoginActivity::class.java))
         finish()
     }
