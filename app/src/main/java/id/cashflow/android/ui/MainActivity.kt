@@ -9,6 +9,7 @@ import androidx.appcompat.widget.PopupMenu
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import id.cashflow.android.R
+import id.cashflow.android.util.PrefUtil
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -60,8 +61,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onLogoutClick() {
-        val sharedPref = getSharedPreferences(LoginActivity.PREF_NAME, Context.MODE_PRIVATE)
-        sharedPref.edit().clear().apply()
+        PrefUtil.logout()
         startActivity(Intent(this@MainActivity, LoginActivity::class.java))
         finish()
     }

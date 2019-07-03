@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
 import id.cashflow.android.BuildConfig
 import id.cashflow.android.R
+import id.cashflow.android.util.PrefUtil
 import id.cashflow.android.util.toast
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -21,8 +22,6 @@ class LoginActivity : AppCompatActivity() {
         const val PREF_NAME = BuildConfig.APPLICATION_ID
     }
 
-    private val sharedPref = getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         checkIsAuthenticated()
@@ -31,8 +30,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun checkIsAuthenticated() {
-        val userEmail = sharedPref.getString(PREF_EMAIL, null)
-        if (userEmail != null) {
+        if (PrefUtil.isLogin()) {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
@@ -53,10 +51,7 @@ class LoginActivity : AppCompatActivity() {
 //            versi biasa
 //            sharedPref.edit().putString(PREF_EMAIL, email).apply()
 
-//            versi dengan ktx
-            sharedPref.edit {
-                putString(PREF_EMAIL, email)
-            }
+            PrefUtil.setLoginEmail(email)
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         } else {
