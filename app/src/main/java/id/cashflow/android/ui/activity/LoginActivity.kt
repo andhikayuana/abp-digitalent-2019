@@ -1,10 +1,8 @@
-package id.cashflow.android.ui
+package id.cashflow.android.ui.activity
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.edit
 import id.cashflow.android.BuildConfig
 import id.cashflow.android.R
 import id.cashflow.android.util.PrefUtil

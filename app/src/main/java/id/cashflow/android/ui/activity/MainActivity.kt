@@ -1,6 +1,5 @@
-package id.cashflow.android.ui
+package id.cashflow.android.ui.activity
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuInflater
@@ -9,6 +8,7 @@ import androidx.appcompat.widget.PopupMenu
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import id.cashflow.android.R
+import id.cashflow.android.data.model.Transaction
 import id.cashflow.android.util.PrefUtil
 import kotlinx.android.synthetic.main.activity_main.*
 

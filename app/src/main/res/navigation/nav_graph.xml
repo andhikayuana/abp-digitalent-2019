@@ -3,7 +3,7 @@
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools" android:id="@+id/nav_graph" app:startDestination="@id/mainFragment">
 
-    <fragment android:id="@+id/mainFragment" android:name="id.cashflow.android.ui.MainFragment"
+    <fragment android:id="@+id/mainFragment" android:name="id.cashflow.android.ui.fragment.MainFragment"
               android:label="MainFragment">
         <action android:id="@+id/action_mainFragment_to_notificationFragment"
                 app:destination="@+id/notificationFragment" app:enterAnim="@anim/nav_default_enter_anim"
@@ -11,8 +11,8 @@
                 app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
         <action android:id="@+id/action_mainFragment_to_settingFragment" app:destination="@id/settingFragment"/>
     </fragment>
-    <fragment android:id="@+id/notificationFragment" android:name="id.cashflow.android.ui.NotificationFragment"
+    <fragment android:id="@+id/notificationFragment" android:name="id.cashflow.android.ui.fragment.NotificationFragment"
               android:label="fragment_notification" tools:layout="@layout/fragment_notification"/>
-    <fragment android:id="@+id/settingFragment" android:name="id.cashflow.android.ui.SettingFragment"
+    <fragment android:id="@+id/settingFragment" android:name="id.cashflow.android.ui.fragment.SettingFragment"
               android:label="fragment_setting" tools:layout="@layout/fragment_setting"/>
 </navigation>
