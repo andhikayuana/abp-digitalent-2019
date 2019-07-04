@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.cashflow.android.R
 import id.cashflow.android.data.Dummy
@@ -23,7 +24,17 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initView()
         initData()
+    }
+
+    private fun initView() {
+        btnAddBalance.setOnClickListener {
+            findNavController().navigate(R.id.balanceAddFragment)
+        }
+        btnAddExpense.setOnClickListener {
+            findNavController().navigate(R.id.expenseAddFragment)
+        }
     }
 
     private fun initData() {

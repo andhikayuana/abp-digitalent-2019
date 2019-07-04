@@ -10,9 +10,15 @@
                 app:exitAnim="@anim/nav_default_exit_anim" app:popEnterAnim="@anim/nav_default_pop_enter_anim"
                 app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
         <action android:id="@+id/action_mainFragment_to_settingFragment" app:destination="@id/settingFragment"/>
+        <action android:id="@+id/action_mainFragment_to_balanceAddFragment" app:destination="@id/balanceAddFragment"/>
+        <action android:id="@+id/action_mainFragment_to_expenseAddFragment" app:destination="@id/expenseAddFragment"/>
     </fragment>
     <fragment android:id="@+id/notificationFragment" android:name="id.cashflow.android.ui.fragment.NotificationFragment"
               android:label="fragment_notification" tools:layout="@layout/fragment_notification"/>
     <fragment android:id="@+id/settingFragment" android:name="id.cashflow.android.ui.fragment.SettingFragment"
               android:label="fragment_setting" tools:layout="@layout/fragment_setting"/>
+    <fragment android:id="@+id/balanceAddFragment" android:name="id.cashflow.android.ui.fragment.BalanceAddFragment"
+              android:label="fragment_balance_add" tools:layout="@layout/fragment_balance_add"/>
+    <fragment android:id="@+id/expenseAddFragment" android:name="id.cashflow.android.ui.fragment.ExpenseAddFragment"
+              android:label="fragment_expense_add" tools:layout="@layout/fragment_expense_add"/>
 </navigation>

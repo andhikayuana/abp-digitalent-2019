@@ -19,7 +19,23 @@
 
     </androidx.cardview.widget.CardView>
 
-    <!--ada 2 button untuk nambah uang di tabungan dan nambah konsumsi-->
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+        <Button
+                android:id="@+id/btnAddBalance"
+                android:layout_weight="1"
+                android:text="+ Balance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        <Button
+                android:layout_weight="1"
+                android:text="+ Expense"
+                android:id="@+id/btnAddExpense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvTransactions"
