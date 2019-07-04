@@ -15,15 +15,17 @@ import kotlinx.android.synthetic.main.item_transaction.view.*
 class TransactionViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     fun bind(transaction: Transaction) {
-        Glide.with(App.context!!)
-            .load(transaction.image)
-            .centerCrop()
-            .placeholder(R.mipmap.ic_launcher)
-            .into(itemView.ivImage)
-        itemView.tvTitle.text = transaction.title
-        itemView.tvDesc.text = transaction.desc
-        itemView.tvAmount.text = transaction.amount.toString()
-        itemView.tvDate.text = transaction.date.toString()
+        with(itemView) {
+            Glide.with(App.context!!)
+                .load(transaction.image)
+                .centerCrop()
+                .placeholder(R.mipmap.ic_launcher)
+                .into(ivImage)
+            tvTitle.text = transaction.title
+            tvDesc.text = transaction.desc
+            tvAmount.text = transaction.amount.toString()
+            tvDate.text = transaction.date.toString()
+        }
     }
 
 }
