@@ -22,5 +22,13 @@
     "date": "2019-05-20",
     "image": "https://api.adorable.io/avatars/80/3@tiga.png",
     "amount": 60000
+  },
+  {
+    "id": 34,
+    "title": "Wallet Transfer",
+    "desc": "Money sent - received",
+    "date": "2019-05-25",
+    "image": "https://api.adorable.io/avatars/80/4@empat.png",
+    "amount": 80000
   }
 ]
