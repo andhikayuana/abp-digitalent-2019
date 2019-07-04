@@ -1,6 +1,6 @@
 package id.cashflow.android.data
 
-import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import id.cashflow.android.App
 import id.cashflow.android.R
@@ -20,7 +20,10 @@ object Dummy {
             stream.read(bytes)
             val dummy = String(bytes)
             val type = object : TypeToken<List<Transaction>>() {}.type
-            val result = Gson().fromJson<ArrayList<Transaction>>(dummy, type)
+            val result = GsonBuilder()
+                .setDateFormat("yyyy-MM-dd")
+                .create()
+                .fromJson<ArrayList<Transaction>>(dummy, type)
             return result
         } catch (e: IOException) {
             e.printStackTrace()

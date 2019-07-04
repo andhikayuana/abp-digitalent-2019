@@ -4,7 +4,7 @@
     "title": "Wallet Transfer",
     "desc": "Money sent - received",
     "date": "2019-05-03",
-    "image": "https://api.adorable.io/avatars/240/1",
+    "image": "https://api.adorable.io/avatars/80/1@satu.png",
     "amount": 50000
   },
   {
@@ -12,7 +12,7 @@
     "title": "Wallet Transfer",
     "desc": "Money sent - received",
     "date": "2019-05-10",
-    "image": "https://api.adorable.io/avatars/240/2",
+    "image": "https://api.adorable.io/avatars/80/2@dua.png",
     "amount": 60000
   },
   {
@@ -20,7 +20,7 @@
     "title": "Wallet Transfer",
     "desc": "Money sent - received",
     "date": "2019-05-20",
-    "image": "https://api.adorable.io/avatars/240/3",
+    "image": "https://api.adorable.io/avatars/80/3@tiga.png",
     "amount": 60000
   }
 ]
