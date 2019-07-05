@@ -14,7 +14,7 @@ import id.cashflow.android.data.local.entity.TransactionEntity
 interface TransactionDao {
 
     @Query("SELECT * FROM transactions")
-    suspend fun getAll(): List<TransactionEntity>
+    fun getAll(): List<TransactionEntity>
 
     @Query("SELECT * FROM transactions WHERE type = ${TransactionEntity.TYPE_BALANCE}")
     suspend fun getAllBalance(): List<TransactionEntity>
@@ -23,7 +23,7 @@ interface TransactionDao {
     suspend fun getAllExpense(): List<TransactionEntity>
 
     @Insert
-    suspend fun insertAll(vararg transactions: TransactionEntity)
+    fun insertAll(vararg transactions: TransactionEntity)
 
     @Delete
     suspend fun delete(transaction: TransactionEntity)

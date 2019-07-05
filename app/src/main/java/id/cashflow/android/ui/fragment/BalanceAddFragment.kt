@@ -36,8 +36,8 @@ class BalanceAddFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val scope = CoroutineScope(Dispatchers.Default)
-        scope.launch {
+//        val scope = CoroutineScope(Dispatchers.Default)
+//        scope.launch {
             val dao = App.db?.transactionDao()
             dao?.insertAll(
                 TransactionEntity(
@@ -59,7 +59,7 @@ class BalanceAddFragment : Fragment() {
             )
             Log.d("TRANSACTION", dao?.getAll().toString())
 
-        }
+//        }
     }
 
 }

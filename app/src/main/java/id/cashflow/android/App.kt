@@ -3,6 +3,7 @@ package id.cashflow.android
 import android.app.Application
 import android.content.Context
 import androidx.room.Room
+import com.facebook.stetho.Stetho
 import id.cashflow.android.data.local.AppDatabase
 
 /**
@@ -27,11 +28,13 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        Stetho.initializeWithDefaults(this)
         INSTANCE = this
         Companion.context = this
         db = Room.databaseBuilder(
             this,
             AppDatabase::class.java, "cashflow-db"
-        ).fallbackToDestructiveMigration().build()
+        ).allowMainThreadQueries()
+            .build()
     }
 }
